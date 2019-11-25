@@ -9,7 +9,7 @@
 
 # configuration - need change it
 
-$COPYRIGHT="© 2019. <a href=https://github.com/pphome2/minisys>MiniApp</a>";
+$COPYRIGHT="© 2019. <a href=https://github.com/pphome2/minidldir>MiniDlDir</a>";
 
 # need md5 passcode -- password
 $DF_PASS="5f4dcc3b5aa765d61d8327deb882cf99";
@@ -17,11 +17,10 @@ $DF_PASS="5f4dcc3b5aa765d61d8327deb882cf99";
 ## auto logout - second
 $LOGIN_TIMEOUT=600;
 
-$DF_SITENAME="MiniApp - Download Dir";
+$DF_SITENAME="Download Dir";
 $DF_SITE_HOME="http://www.google.com";
 
 $DF_CSS="site.css";
-$DF_CSS2="site2.css";
 $DF_JS_BEGIN="";
 $DF_JS_END="js_end.js";
 $DF_HEADER="header.php";

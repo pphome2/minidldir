@@ -66,24 +66,24 @@ function formatBytes($size, $precision=2){
 }
 
 function filetable($dir){
-    global $DF_FILEEXT,$DF_LANG,$DF_TEXTFILE_EXT,$DF_DOWNLOAD_TEXT,$table;
+	global $DF_FILEEXT,$DF_LANG,$DF_TEXTFILE_EXT,$L_DOWNLOAD_TEXT,$L_TABLE_HEAD,$table;
 
-    $files=scandir($dir);
-    asort($files);
-    $fdb=0;
-    foreach ($files as $entry) {
-        if ($entry!="." && $entry!="..") {
+	$files=scandir($dir);
+	asort($files);
+	$fdb=0;
+	foreach ($files as $entry) {
+		if ($entry!="." && $entry!="..") {
 			$dirn=$dir.'/'.$entry;
 			if (is_dir($dirn)){
 				echo("<br /><br />");
 				echo("<b>$entry</b>");
 				echo("<br /><br />");
 				echo("<center>");
-				echo("<table class='df_table'>");
-				echo("<tr class='df_trh'>");
-				echo("<th class='df_th1'>$DF_LANG[0]</th>");
-				echo("<th class='df_th2'>$DF_LANG[1]</th>");
-				echo("<th class='df_th2'>$DF_LANG[2]</th>");
+				echo("<table class='mf_table'>");
+				echo("<tr class='mf_trh'>");
+				echo("<th class='mf_th1'>$L_TABLE_HEAD[0]</th>");
+				echo("<th class='mf_th2'>$L_TABLE_HEAD[1]</th>");
+				echo("<th class='mf_th2'>$L_TABLE_HEAD[2]</th>");
 				echo("</tr>");
 				$table=true;
 				filetable($dirn);
@@ -99,50 +99,52 @@ function filetable($dir){
 					echo("<b>$dirx</b>");
 					echo("<br /><br />");
 					echo("<center>");
-					echo("<table class='df_table'>");
-					echo("<tr class='df_trh'>");
-					echo("<th class='df_th1'>$L_TABLE_HEAD[0]</th>");
-					echo("<th class='df_th2'>$L_TABLE_HEAD[1]</th>");
-					echo("<th class='df_th2'>$L_TABLE_HEAD[2]</th>");
+					echo("<table class='mf_table'>");
+					echo("<tr class='mf_trh'>");
+					echo("<th class='mf_th1'>$L_TABLE_HEAD[0]</th>");
+					echo("<th class='mf_th2'>$L_TABLE_HEAD[1]</th>");
+					echo("<th class='mf_th2'>$L_TABLE_HEAD[2]</th>");
 					echo("</tr>");
 					$table=true;
 				}
 			}
-            $fileext=explode('.',$entry);
-            $fileext_name=$fileext[count($fileext)-1];
-            $fileext_name2='.'.$fileext_name;
-            if ((in_array($fileext_name, $DF_FILEEXT))or(in_array($fileext_name2, $DF_FILEEXT))){
-                echo("<tr class='df_tr'>");
-                $fileext_name=strtoupper($fileext_name);
-                echo("<td class='df_td'><span class='df_tds'>[$fileext_name]</span> ");
-                echo("<a href='$dir/$entry' target='$target' class='df_tda'>$entry</a>");
-                echo(" ");
-                #echo("<br />");
-                #echo("<br />");
-                #$filetext=$dir.'/'.$entry.$DF_TEXTFILE_EXT;
-                #if (file_exists($filetext)){
-                #    echo(file_get_contents($filetext)."<br />");
-                #    echo("<br />");
-                #    echo("<br />");
-                #}
-                echo("<a href='$dir/$entry' download class='df_tda2' onclick='delrow(this);'>$L_DOWNLOAD_TEXT</a>");
-                echo("<br />");
-                echo("<br />");
-                echo("</td>");
-                $m=filectime($dir.'/'.$entry);
-                $m=gmdate("Y.m.d", $m);
-                echo("<td class='df_td2'>$m</td>");
-                $m=filesize($dir.'/'.$entry);
-                $m=formatBytes($m);
-                echo("<td class='df_td2'>$m</td>");
-                echo("</tr>");
-            }
-        }
-    }
-            if ($table){
-				echo("</table>");
-				echo("</center>");
+			$fileext=explode('.',$entry);
+			$fileext_name=$fileext[count($fileext)-1];
+			$fileext_name2='.'.$fileext_name;
+			if ((in_array($fileext_name, $DF_FILEEXT))or(in_array($fileext_name2, $DF_FILEEXT))){
+				echo("<tr class='mf_tr'>");
+				$fileext_name=strtoupper($fileext_name);
+				echo("<td class='mf_td'><span class='mf_tds'>[$fileext_name]</span> ");
+				echo("<a href='$dir/$entry' target='$target' class='mf_tda'>$entry</a>");
+				echo(" ");
+				#echo("<br />");
+				#echo("<br />");
+				#$filetext=$dir.'/'.$entry.$DF_TEXTFILE_EXT;
+				#if (file_exists($filetext)){
+				#    echo(file_get_contents($filetext)."<br />");
+				#    echo("<br />");
+				#    echo("<br />");
+				#}
+				#echo("<a href='$dir/$entry' download class='mf_tda2''>$L_DOWNLOAD_TEXT</a>");
+				echo("<br />");
+				echo("<a href='$dir/$entry' download class='mf_tda2' onclick='delrow(this);'>$L_DOWNLOAD_TEXT</a>");
+				echo("<br />");
+				echo("<br />");
+				echo("</td>");
+				$m=filectime($dir.'/'.$entry);
+				$m=gmdate("Y.m.d", $m);
+				echo("<td class='mf_td2'>$m</td>");
+				$m=filesize($dir.'/'.$entry);
+				$m=formatBytes($m);
+				echo("<td class='mf_td2'>$m</td>");
+				echo("</tr>");
 			}
+		}
+	}
+	if ($table){
+		echo("</table>");
+		echo("</center>");
+	}
 
 }
 

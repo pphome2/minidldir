@@ -1,3 +1,0 @@
-Szöveg f ájlról.
-Ez az első.
-<b>vastag</b>
