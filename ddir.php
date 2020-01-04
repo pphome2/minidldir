@@ -60,6 +60,9 @@ function mess_ok($m){
 
 
 function formatBytes($size, $precision=2){
+    if($size < 0) {
+        size=$size + PHP_INT_MAX + PHP_INT_MAX + 2;
+    }
     $base=log($size, 1024);
     $suffixes=array('', 'K', 'M', 'G', 'T');
     return round(pow(1024,$base-floor($base)),$precision).' '.$suffixes[floor($base)];
