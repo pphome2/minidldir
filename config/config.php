@@ -40,5 +40,6 @@ $DF_TEXTFILE_EXT='.txt';
 
 $DF_LINK_TARGET_NEW_WINDOW=false;
 $table=false;
+$dirnum=0;
 
 ?>

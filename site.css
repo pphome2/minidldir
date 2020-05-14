@@ -43,6 +43,11 @@ body {
     flex: 1 0 auto;
 }
 
+.dl-content {
+    margin:20px;
+    padding:20px;
+}
+
 .menu {
     margin:0;
     padding:0;
@@ -249,8 +254,8 @@ hr{
 .topright, .toprightclose {
     text-decoration:none;
     position:absolute;
-    right:5px;
-    top:5px;
+    right:10px;
+    top:7px;
     font-size:1em;
     color:white;
 }
@@ -267,12 +272,22 @@ hr{
     color:white;
 }
 
+.topleftmenu1{
+    text-decoration:bold;
+	display: inline-block;
+	vertical-align: middle;
+    margin-top:5px;
+    font-size:1em;
+}
 .topleftmenu1:before {
-    content:"\2630";
+    content:'\2630';
     padding-right:10px;
     padding-left:10px;
+    margin-bottom:5px;
     text-decoration:bold;
-    font-size:1.2em;
+	display: inline-block;
+	vertical-align: middle;
+    font-size:1em;
 }
 
 .topleftmenu2:before {
@@ -434,7 +449,7 @@ hr{
     box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
 }
 .card-header {
-    padding:10px 10px 10px 10px;
+    padding:5px;
     background-color:#2196F3;
     color:white;
     font-size:1.3em;
@@ -525,15 +540,13 @@ hr{
     padding-right:15px;
     padding-left:15px;
     padding-top:15px;
-    padding-bottom:12px;
+    padding-bottom:13px;
     color: white;
     font-size:16px;
     cursor: pointer;
-    ttransform:rotate(90deg);
 }
 
 .esearch_icon:after{
-    ccontent:"\1F50D";
     content:"\260C";
 }
 
@@ -907,6 +920,11 @@ img {
 
   .mf_table {
     width:90%;
+  }
+
+  .mf_table_full {
+    width:100%;
+    padding:20px;
   }
 
   .mf_trh {

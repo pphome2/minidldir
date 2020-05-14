@@ -1,22 +1,23 @@
 <script>
 
     function delrow(obj){
-	obj2=obj.parentNode;
-	obj2.parentNode.style.display='none';
+		obj2=obj.parentNode;
+		obj2.parentNode.style.display='none';
     }
 
 // card open/close
 
-function cardclose(th){
+function cardclose(th,th2){
 	//var x=document.getElementById(th);
 	//var x=th.parentElement.parentElement.childNodes[2];
 	if (th.style.display=='none'){
-		th.style.display='block'
+		th.style.display='block';
+		th2.innerHTML=' -- ';
 	} else {
-		th.style.display='none'
+		th.style.display='none';
+		th2.innerHTML=' + ';
 	}
 }
-
 
 //Tab function for administration
 

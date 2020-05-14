@@ -14,14 +14,27 @@ if (file_exists("config/config.php")){
 if (file_exists("config/$DF_LANGFILE")){
 	include("config/$DF_LANGFILE");
 }
-if (file_exists("$DF_HEADER")){
-	include("$DF_HEADER");
-}
-if (file_exists("$DF_JS_BEGIN")){
-	include("$DF_JS_BEGIN");
+
+echo('
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title><?php echo($DF_SITENAME); ?></title>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" href="favicon.png">
+		<link rel="shortcut icon" type="image/png" href="favicon.png" />
+	</head>
+	<style>
+');
+
+if (file_exists("$DF_CSS")){
+	include("$DF_CSS");
 }
 
-
+echo('</style><body>');
+echo('<div class=dl-content>');
 
 function vinput($d) {
     $d=trim($d);
@@ -169,8 +182,7 @@ filetable($DF_DIR);
 if (file_exists("$DF_JS_END")){
 	include("$DF_JS_END");
 }
-if (file_exists($DF_FOOTER)){
-	include("$DF_FOOTER");
-}
+
+echo("</div></body></html>");
 
 ?>
